@@ -76,3 +76,30 @@ class MyWidget extends ConsumerWidget {
     );
   }
 }
+
+
+
+
+import 'package:http/http.dart' as http;
+
+Future<String> getIdToken({bool? force}) async {
+  // fetch update token
+  return "abc*******";
+}
+
+Future<void> main() async {
+    final token = await getIdToken();
+
+  final client = http.Client();
+  
+  final response = await client.get(Uri.parse("https://api.***.server"), 
+                                    headers: {
+                                      'Authorization': 'Bearer $token',
+                                    });
+
+  if (response.statusCode == 401) {
+    main();
+  }
+  
+}
+

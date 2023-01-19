@@ -52,11 +52,11 @@ class MyWidget extends ConsumerWidget {
       children: [
         Consumer(
           builder: (context, ref, _) {
-            AsyncValue<int> count = ref.watch(countProvider);
-            // final count = ref.watch(countProvider);
+            // AsyncValue<int> count = ref.watch(countProvider);
+            final count = ref.watch(countProvider);
 
             return Text(
-              'Count: $count',
+              'Count: ${count.value}',
               style: Theme.of(context).textTheme.headline4,
             );
           },
